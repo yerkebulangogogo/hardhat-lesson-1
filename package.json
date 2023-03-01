@@ -2,14 +2,20 @@
   "name": "hardhat-project",
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.1",
-    "hardhat": "^2.12.7"
+    "hardhat": "^2.12.7",
+    "hardhat-gas-reporter": "^1.0.9"
   },
   "dependencies": {
-    "dotenv": "^16.0.3"
+    "@nomiclabs/hardhat-etherscan": "^3.1.6",
+    "@openzeppelin/contracts": "^4.8.1",
+    "chai": "^4.3.7",
+    "dotenv": "^16.0.3",
+    "mocha": "^10.2.0"
   },
   "scripts": {
+    "test": "hardhat test --network hardhat",
     "compile": "hardhat compile",
     "accounts": "hardhat accounts",
-    "deploy": "hardhat run ./scripts/testcontract.deploy.js --network goerli"
+    "deploy": "hardhat test && hardhat run ./scripts/deployERC721.js --network goerli"
   }
 }
